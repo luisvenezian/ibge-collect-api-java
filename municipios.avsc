@@ -1,0 +1,100 @@
+{
+    "type" : "record",
+    "name":"municipios",
+    "fields" : [
+        {"name" : "id", "type" : "string"},
+        {"name" : "nome", "type" : "string"},
+        {
+            "name": "microrregiao", 
+            "type": {
+                "type":"record",
+                "name":"microrregioes",
+                "fields":[
+                    {"name":"id", "type":"int"},
+                    {"name":"nome", "type":"string"},
+                    {
+                        "name":"mesorregiao",
+                        "type":{
+                            "type": "record",
+                            "name": "mesoregioes",
+                            "fields": [
+                                {"name":"id", "type":"int"},
+                                {"name":"nome", "type":"string"},
+                                {
+                                    "name":"UF",
+                                        "type":{
+                                            "type": "record",
+                                            "name": "unidades_federativas",
+                                            "fields": [
+                                                {"name":"id", "type":"int"},
+                                                {"name":"sigla", "type":"string"},
+                                                {"name":"nome", "type":"string"},
+                                                {
+                                                    "name":"regiao",
+                                                    "type":{
+                                                        "type": "record",
+                                                        "name": "regioes",
+                                                        "fields": [
+                                                            {"name":"id", "type":"int"},
+                                                            {"name":"sigla", "type":"string"},
+                                                            {"name":"nome", "type":"string"}
+                                                        ]
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name":"regiao_imediata",
+            "type":{
+                "type": "record",
+                "name": "regioes_imediatas",
+                "fields": [
+                    {"name":"id", "type":"int"},
+                    {"name":"nome", "type":"string"},
+                    {
+                        "name":"regiao_intermediaria",
+                        "type":{
+                            "type": "record",
+                            "name": "regioes_intermediarias",
+                            "fields": [
+                                {"name":"id", "type":"int"},
+                                {"name":"nome", "type":"string"},
+                                {
+                                    "name":"UF",
+                                        "type":{
+                                            "type": "record",
+                                            "name": "unidades_federativas_2",
+                                            "fields": [
+                                                {"name":"id", "type":"int"},
+                                                {"name":"sigla", "type":"string"},
+                                                {"name":"nome", "type":"string"},
+                                                {
+                                                    "name":"regiao",
+                                                    "type":{
+                                                        "type": "record",
+                                                        "name": "regioes_2",
+                                                        "fields": [
+                                                            {"name":"id", "type":"int"},
+                                                            {"name":"sigla", "type":"string"},
+                                                            {"name":"nome", "type":"string"}
+                                                        ]
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}
